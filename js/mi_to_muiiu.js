@@ -61,19 +61,43 @@ $(document).ready(function() {
         var end_index = start_index+selectedText.length;
 
         var erster_teil_kette = aktuelle_kette.substr(0, start_index+selectedText.length)
-        var neu = U
         var zweiter_teil_kette = aktuelle_kette.substr(end_index)
+
+        var neu = U
         var neue_kette = erster_teil_kette+neu+zweiter_teil_kette;
+
 
         ersetze_text_der_aktuellen_kette(neue_kette);
         add_schritt_to_html(aktuelle_kette, "Regel I");
 
     });
 
+    /*
+        Handler für Regel 1: Mx -> Mxx
+     */
     $("#regel_2").click(function() {
         var aktuelle_kette = $("#aktuelle_kette").text();
         var selectedText = getSelectedText();
 
+        //muss mit M enden
+        var firstChar = selectedText[0];
+        if(firstChar != M){
+            alert("Der erste Buchstabe der Selektion muss M sein. Die Selektion ist "+selectedText);
+            return;
+        }
+
+        // Neue Kette
+
+        // start- und Endpunkt des ersten Erscheinens
+        var start_index = aktuelle_kette.indexOf(selectedText);
+        var end_index = start_index+selectedText.length;
+
+        var erster_teil_kette = aktuelle_kette.substr(0, start_index);
+        var zweiter_teil_kette = aktuelle_kette.substr(end_index);
+
+        var x = selectedText.substr(1);
+
+        var neue_kette = erster_teil_kette+selectedText+x+zweiter_teil_kette;
         ersetze_text_der_aktuellen_kette(neue_kette);
         add_schritt_to_html(aktuelle_kette, "Regel II");
 
