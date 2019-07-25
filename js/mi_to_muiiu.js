@@ -1,6 +1,8 @@
-const M = "M"
-const I = "I"
-const U = "U"
+const M = "M";
+const I = "I";
+const U = "U";
+const ZIELKETTE = "MUIIU";
+//const ZIELKETTE = "MIU";
 
 /*
 Holt den selektierten Text
@@ -38,6 +40,26 @@ function ersetze_text_der_aktuellen_kette(neue_kette) {
     $("#aktuelle_kette").text(neue_kette)
 }
 
+/*
+liefert die Substrings vor- und nach der Selektion
+ */
+function vor_und_nach_der_selektion(aktuelle_kette, selected_text) {
+    // start- und Endpunkt des ersten Erscheinens
+    var start_index = aktuelle_kette.indexOf(selected_text);
+    var end_index = start_index+selected_text.length;
+
+    var erster_teil_kette = aktuelle_kette.substr(0, start_index);
+    var zweiter_teil_kette = aktuelle_kette.substr(end_index);
+    return {erster_teil_kette, zweiter_teil_kette};
+}
+
+
+function test_erfolg(neue_kette){
+    if(neue_kette == ZIELKETTE){
+        alert("Super, Das die Kette gefunden. Ist "+neue_kette)
+    }
+}
+
 $(document).ready(function() {
 
     /*
@@ -59,15 +81,16 @@ $(document).ready(function() {
         var start_index = aktuelle_kette.indexOf(selectedText);
         var end_index = start_index+selectedText.length;
 
-        var erster_teil_kette = aktuelle_kette.substr(0, start_index+selectedText.length)
-        var zweiter_teil_kette = aktuelle_kette.substr(end_index)
+        var erster_teil_kette = aktuelle_kette.substr(0, start_index+selectedText.length);
+        var zweiter_teil_kette = aktuelle_kette.substr(end_index);
 
-        var neu = U
+        var neu = U;
         var neue_kette = erster_teil_kette+neu+zweiter_teil_kette;
 
 
         ersetze_text_der_aktuellen_kette(neue_kette);
         add_schritt_to_html(aktuelle_kette, "Regel I");
+        test_erfolg(neue_kette);
 
     });
 
@@ -88,18 +111,14 @@ $(document).ready(function() {
         // Neue Kette
 
         // start- und Endpunkt des ersten Erscheinens
-        var start_index = aktuelle_kette.indexOf(selectedText);
-        var end_index = start_index+selectedText.length;
+        var {erster_teil_kette, zweiter_teil_kette} = vor_und_nach_der_selektion(aktuelle_kette, selectedText);
 
-        var erster_teil_kette = aktuelle_kette.substr(0, start_index);
-        var zweiter_teil_kette = aktuelle_kette.substr(end_index);
-
+        // Neue Kette
         var x = selectedText.substr(1);
-
         var neue_kette = erster_teil_kette+selectedText+x+zweiter_teil_kette;
         ersetze_text_der_aktuellen_kette(neue_kette);
         add_schritt_to_html(aktuelle_kette, "Regel II");
-
+        test_erfolg(neue_kette);
     });
 
 
@@ -116,20 +135,14 @@ $(document).ready(function() {
             return;
         }
 
+        var {erster_teil_kette, zweiter_teil_kette} = vor_und_nach_der_selektion(aktuelle_kette, selectedText);
+
         // Neue Kette
-
-        // start- und Endpunkt des ersten Erscheinens
-        var start_index = aktuelle_kette.indexOf(selectedText);
-        var end_index = start_index+selectedText.length;
-
-        var erster_teil_kette = aktuelle_kette.substr(0, start_index);
-        var zweiter_teil_kette = aktuelle_kette.substr(end_index);
-
         var x = U;
-
         var neue_kette = erster_teil_kette+x+zweiter_teil_kette;
         ersetze_text_der_aktuellen_kette(neue_kette);
         add_schritt_to_html(aktuelle_kette, "Regel III");
+        test_erfolg(neue_kette);
 
     });
 
@@ -148,20 +161,15 @@ $(document).ready(function() {
             return;
         }
 
-        // Neue Kette
-
         // start- und Endpunkt des ersten Erscheinens
-        var start_index = aktuelle_kette.indexOf(selectedText);
-        var end_index = start_index+selectedText.length;
+        var {erster_teil_kette, zweiter_teil_kette} = vor_und_nach_der_selektion(aktuelle_kette, selectedText);
 
-        var erster_teil_kette = aktuelle_kette.substr(0, start_index);
-        var zweiter_teil_kette = aktuelle_kette.substr(end_index);
-
+        // Neue Kette
         var x = "";
-
         var neue_kette = erster_teil_kette+x+zweiter_teil_kette;
         ersetze_text_der_aktuellen_kette(neue_kette);
         add_schritt_to_html(aktuelle_kette, "Regel IV");
+        test_erfolg(neue_kette);
 
     });
 
