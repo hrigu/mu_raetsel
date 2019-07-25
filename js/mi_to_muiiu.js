@@ -1,13 +1,17 @@
 /*
 Holt den selektierten Text
-TODO: Nur selektierten Text des Elementes "aktuelle_kette" erlauben
 TODO: Wenn kein Selektierten Text, dann die Aktion abbrechen
  */
 function getSelectedText(){
     var selected_text = window.getSelection().toString();
-    if(selected_text == ""){
+
+    if(window.getSelection().baseNode.parentNode.id != "aktuelle_kette"){
+        selected_text = ""
+        alert("Bitte selektiere aus der aktuellen Kette!");
+
+
+    } else if(selected_text == ""){
         alert("Bitte selektiere den Input aus der aktuellen Kette für die Regel!");
-        return false
     }
     return selected_text
 }
