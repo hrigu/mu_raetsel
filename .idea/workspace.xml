@@ -39,8 +39,8 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/js/mi_to_muiiu.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="595">
-                  <caret line="71" lean-forward="true" selection-start-line="71" selection-end-line="71" />
+                <state relative-caret-position="240">
+                  <caret line="16" column="59" selection-start-line="16" selection-start-column="59" selection-end-line="16" selection-end-column="59" />
                 </state>
               </provider>
             </entry>
@@ -160,7 +160,7 @@
       <option name="presentableId" value="Default" />
       <updated>1564047973379</updated>
       <workItem from="1564047978010" duration="3894000" />
-      <workItem from="1564057428910" duration="5030000" />
+      <workItem from="1564057428910" duration="6185000" />
     </task>
     <task id="LOCAL-00001" summary="- Die vier Knöpfe&#10;- Handler für Regel 1&#10;- Grundlegende Funktionsweise um die History zu bauen">
       <created>1564060142581</created>
@@ -176,11 +176,25 @@
       <option name="project" value="LOCAL" />
       <updated>1564060890469</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Erste Regel implementiert">
+      <created>1564062476940</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1564062476940</updated>
+    </task>
+    <task id="LOCAL-00004" summary="zweite Regel implementiert">
+      <created>1564063241701</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1564063241702</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="8924000" />
+    <option name="totallyTimeSpent" value="10079000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1920" y="0" width="1680" height="1050" extended-state="6" />
@@ -213,7 +227,9 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="- Die vier Knöpfe&#10;- Handler für Regel 1&#10;- Grundlegende Funktionsweise um die History zu bauen" />
     <MESSAGE value="TODO gelöst: TODO: Nur selektierten Text des Elementes &quot;aktuelle_kette&quot; erlauben" />
-    <option name="LAST_COMMIT_MESSAGE" value="TODO gelöst: TODO: Nur selektierten Text des Elementes &quot;aktuelle_kette&quot; erlauben" />
+    <MESSAGE value="Erste Regel implementiert" />
+    <MESSAGE value="zweite Regel implementiert" />
+    <option name="LAST_COMMIT_MESSAGE" value="zweite Regel implementiert" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/css/bootstrap.css">
@@ -249,8 +265,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/js/mi_to_muiiu.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="595">
-          <caret line="71" lean-forward="true" selection-start-line="71" selection-end-line="71" />
+        <state relative-caret-position="240">
+          <caret line="16" column="59" selection-start-line="16" selection-start-column="59" selection-end-line="16" selection-end-column="59" />
         </state>
       </provider>
     </entry>

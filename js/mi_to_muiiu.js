@@ -9,13 +9,12 @@ TODO: Wenn kein Selektierten Text, dann die Aktion abbrechen
 function getSelectedText(){
     var selected_text = window.getSelection().toString();
 
-    if(window.getSelection().baseNode.parentNode.id != "aktuelle_kette"){
+    if(selected_text == ""){
+        alert("Bitte selektiere den Input aus der aktuellen Kette für die Regel!");
+    }
+    else if(window.getSelection().baseNode.parentNode.id != "aktuelle_kette"){
         selected_text = ""
         alert("Bitte selektiere aus der aktuellen Kette!");
-
-
-    } else if(selected_text == ""){
-        alert("Bitte selektiere den Input aus der aktuellen Kette für die Regel!");
     }
     return selected_text
 }
@@ -73,7 +72,7 @@ $(document).ready(function() {
     });
 
     /*
-        Handler für Regel 1: Mx -> Mxx
+        Handler für Regel 2: Mx -> Mxx
      */
     $("#regel_2").click(function() {
         var aktuelle_kette = $("#aktuelle_kette").text();
@@ -104,6 +103,68 @@ $(document).ready(function() {
     });
 
 
+    /*
+    Handler für Regel 3: III -> U
+    */
+    $("#regel_3").click(function() {
+        var aktuelle_kette = $("#aktuelle_kette").text();
+        var selectedText = getSelectedText();
 
+        //muss drei I lang sein
+        if(selectedText != "III"){
+            alert("Die Selektion muss III sein. Die Selektion ist "+selectedText);
+            return;
+        }
+
+        // Neue Kette
+
+        // start- und Endpunkt des ersten Erscheinens
+        var start_index = aktuelle_kette.indexOf(selectedText);
+        var end_index = start_index+selectedText.length;
+
+        var erster_teil_kette = aktuelle_kette.substr(0, start_index);
+        var zweiter_teil_kette = aktuelle_kette.substr(end_index);
+
+        var x = U;
+
+        var neue_kette = erster_teil_kette+x+zweiter_teil_kette;
+        ersetze_text_der_aktuellen_kette(neue_kette);
+        add_schritt_to_html(aktuelle_kette, "Regel III");
 
     });
+
+
+
+    /*
+    Handler für Regel 4: UU -> ""
+    */
+    $("#regel_4").click(function() {
+        var aktuelle_kette = $("#aktuelle_kette").text();
+        var selectedText = getSelectedText();
+
+        //muss drei I lang sein
+        if(selectedText != "UU"){
+            alert("Die Selektion muss UU sein. Die Selektion ist "+selectedText);
+            return;
+        }
+
+        // Neue Kette
+
+        // start- und Endpunkt des ersten Erscheinens
+        var start_index = aktuelle_kette.indexOf(selectedText);
+        var end_index = start_index+selectedText.length;
+
+        var erster_teil_kette = aktuelle_kette.substr(0, start_index);
+        var zweiter_teil_kette = aktuelle_kette.substr(end_index);
+
+        var x = "";
+
+        var neue_kette = erster_teil_kette+x+zweiter_teil_kette;
+        ersetze_text_der_aktuellen_kette(neue_kette);
+        add_schritt_to_html(aktuelle_kette, "Regel IV");
+
+    });
+
+
+
+});
